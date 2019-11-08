@@ -11,8 +11,15 @@ namespace GroupA.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Nosotros";
-            ViewBag.Mision = "Ser una empresa encargada del desarrollo de sistemas Web para empresas ofreciendo un servicio de alta calidad,tecnología confiable y diseños de vanguardia. Maximizando el potencial de nuestros clientes a través del internet.";
-            ViewBag.Vision = "Ser la empresa de desarrolladores de Páginas Web más elegida y cotizada por su compromiso, originalidad  y capacidad de potenciar a nuestros clientes en el mercado digital.";
+            ViewBag.Mision = "Nuestra misión es ofrecer servicios de análisis, diseño, desarrollo y mantenim" +
+                "iento de soluciones sistémicas de tecnología, puntualmente en sistemas que implementen base de datos locales y externos, que aporten v" +
+                "alor añadido a nuestros clientes y ayuden a mejorar sus procesos de negocio. Nuestro enfoque se basa en situar al cliente en el centro de nues" +
+                "tra actividad, poniendo todo nuestro conocimiento a su servicio de forma que éste pueda confiarnos su sistema informático, y así, enfocarse plenamente e" +
+                "n su negocio. Para ello, ofrecemos un servicio de calidad y establecemos relaciones de colaboración a largo plazo que generen satisfacción y rentabilidad en nu" +
+                "estros clientes, empleados y socios de negocio.Garantizamos y optimizamos la seguridad, integridad y estabilidad de las bases de datos, que administran la informació" +
+                "n de las operaciones del negocio, para tener su disponibilidad absoluta, según las necesidades de las diferentes áreas de la compañía.";
+            ViewBag.Vision = "Nuestra empresa aspira a convertirse en un proveedor de servicios de administración de base de datos pionera y reconocida a nivel regional, una empresa sólida" +
+                " y en constante crecimiento, comprometida con la protección y seguridad tecnológica, facilitando el acceso a los datos para luego simplificar la dificultad de toma de decisiones.";
             ViewBag.NombreEmpresa = "Group A";
             
             return View();
