@@ -224,6 +224,7 @@ C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\roslyn\VBCSCompiler.ex
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\Antlr3.Runtime.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\EntityFramework.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\GroupA.Dominio.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -248,6 +249,7 @@ C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.WebPages.De
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.WebPages.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\WebGrease.dll
+C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\GroupA.Dominio.pdb
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.Helpers.xml
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.Mvc.xml
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\System.Web.Optimization.xml
@@ -285,6 +287,8 @@ C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\es\Microsoft.AspNet.Id
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csprojAssemblyReference.cache
+C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.Migrations.Inicial.resources
+C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.GenerateResource.cache
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.CoreCompileInputs.cache
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.CopyComplete
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.dll
