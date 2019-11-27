@@ -18,28 +18,35 @@ namespace GroupA.Web.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            return View(db.Empleados.Where<Empleado>(c => c.BorradoLogico == false).ToList());
+            if (Request.IsAuthenticated) return View(db.Empleados.Where<Empleado>(c => c.BorradoLogico == false).ToList());
+            else return HttpNotFound();
         }
 
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Empleado empleado = db.Empleados.Find(id);
+                if (empleado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(empleado);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
-            {
-                return HttpNotFound();
-            }
-            return View(empleado);
+            else return HttpNotFound();
+            
         }
 
         // GET: Empleados/Create
         public ActionResult Create()
         {
-            return View();
+            if (Request.IsAuthenticated) return View();
+            else return HttpNotFound();
         }
 
         // POST: Empleados/Create
@@ -49,29 +56,39 @@ namespace GroupA.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Dni,Nombre,Apellido,FechaNacimiento,FechaIngreso,Rol,BorradoLogico")] Empleado empleado)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Empleados.Add(empleado);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    db.Empleados.Add(empleado);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(empleado);
+                return View(empleado);
+            }
+            else return HttpNotFound();
+           
         }
 
         // GET: Empleados/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Empleado empleado = db.Empleados.Find(id);
+                if (empleado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(empleado);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
-            {
-                return HttpNotFound();
-            }
-            return View(empleado);
+            else return HttpNotFound();
+            
         }
 
         // POST: Empleados/Edit/5
@@ -81,28 +98,38 @@ namespace GroupA.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Dni,Nombre,Apellido,FechaNacimiento,FechaIngreso,Rol,BorradoLogico")] Empleado empleado)
         {
-            if (ModelState.IsValid)
+            if (Request.IsAuthenticated)
             {
-                db.Entry(empleado).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(empleado).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(empleado);
             }
-            return View(empleado);
+            else return HttpNotFound();
+           
         }
 
         // GET: Empleados/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Request.IsAuthenticated)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Empleado empleado = db.Empleados.Find(id);
+                if (empleado == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(empleado);
             }
-            Empleado empleado = db.Empleados.Find(id);
-            if (empleado == null)
-            {
-                return HttpNotFound();
-            }
-            return View(empleado);
+            else return HttpNotFound();
+            
         }
 
         // POST: Empleados/Delete/5
@@ -110,10 +137,15 @@ namespace GroupA.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Empleado empleado = db.Empleados.Find(id);
-            db.Empleados.Remove(empleado);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Request.IsAuthenticated)
+            {
+                Empleado empleado = db.Empleados.Find(id);
+                db.Empleados.Remove(empleado);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else return HttpNotFound();
+           
         }
 
         protected override void Dispose(bool disposing)
