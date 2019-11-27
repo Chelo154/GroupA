@@ -293,3 +293,7 @@ C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.cspro
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.CopyComplete
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.dll
 C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Web\obj\Debug\GroupA.Web.pdb
+C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\bin\GroupA.Dominio.dll
+C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\bin\GroupA.Dominio.pdb
+C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.Migrations.Inicial.resources
+C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.GenerateResource.cache
