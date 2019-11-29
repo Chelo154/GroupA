@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<GroupA.Dominio.Empleado>
 @{
     ViewBag.Title = "AgregarEmpleados";
 }
@@ -7,4 +7,55 @@
     ViewBag.Empleados -> Recibe un listado de empleados activos que no formen parte del proyecto    
     -->
 <h2>AgregarEmpleados</h2>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            id del Proyecto: @ViewBag.Proyecto.Id
+            <br />
+            Nombre del Proyecto: @ViewBag.Proyecto.Nombre
+        </div>
+    </div>
+</div>
+<div class="container>
+    <div class="row">
+        <div class="col sm-12">
+            <table class="table table-responsive">
+                <tr class="letraFormal">
+                    <th>
+                        Apellido
+                    </th>
+                    <th>
+                        Nombre
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                           @item.Apellido
+                        </td>
+                        <td>
+                            @item.Nombre
+                        </td>
+                        <td>
+                           @using (Html.BeginForm())
+                           {
+                               <input  type="hidden" name="idProyecto" value="@ViewBag.Proyecto.Id"/>
+                               <input type="hidden" name="dniEmpleado" value="@item.Dni" />
+                               <input type="submit" value="AgregarEmpleado" class="btn btn-default" />
+                           }
+                        </td>
+                       
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
 

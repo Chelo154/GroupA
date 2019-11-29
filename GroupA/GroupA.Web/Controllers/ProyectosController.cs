@@ -117,19 +117,21 @@ namespace GroupA.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         //Get Proyectos/AgregarEmpleados/3
-        public ActionResult AgregarEmpleados(int? idProyecto)
+        [HttpGet]
+        public ActionResult AgregarEmpleados(int? id)
         {
-            if (idProyecto == null) return HttpNotFound();
+            if (id == null) return  new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             else
             {
-                Proyecto proyecto = db.Proyectos.Find(idProyecto);
-                ViewBag.Proyecto = proyecto;
-                var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
-                ViewBag.empleados = db.Empleados.Where(c => c.BorradoLogico == false && c.HistorialProyectos.Where(d => d.Proyecto.Id == proyecto.Id && !d.Activo).ToList() == null);
+                Proyecto proyecto = db.Proyectos.Find(id);
+                if (proyecto == null) return new HttpStatusCodeResult(HttpStatusCode.InternalServerError);
+                ViewBag.Proyecto = proyecto;                
+                var empleados = db.Empleados.Where(c => c.BorradoLogico == false).ToList();
+                return View(empleados);
             }
-            return View("AgregarEmpleados");
+            
 
         }
 
@@ -143,7 +145,7 @@ namespace GroupA.Web.Controllers
         }
         // Get : Proyectos/Agregar/1
        
-        [HttpPost]
+        [HttpPost,ActionName("AgregarEmpleados")]
         public ActionResult AgregarEmpleado(int? idProyecto, int? dniEmpleado)
         {
             if (idProyecto == null || dniEmpleado == null) return View();
@@ -151,17 +153,21 @@ namespace GroupA.Web.Controllers
             {
                 Proyecto proyecto = db.Proyectos.Find(idProyecto);
                 Empleado empleado = db.Empleados.Where(c => c.Dni == dniEmpleado).First();
-                var historialProyecto = new HistorialProyecto();
-                historialProyecto.Empleado = empleado;
-                historialProyecto.Proyecto = proyecto;
-                historialProyecto.Activo = true;
-                proyecto.HistorialProyectos.Add(historialProyecto);
-                empleado.HistorialProyectos.Add(historialProyecto);
-                db.HistorialProyectos.Add(historialProyecto);
-                db.Entry(proyecto).State = EntityState.Modified;
-                db.Entry(empleado).State = EntityState.Modified;
-                db.SaveChanges();
+                if (proyecto == null || empleado == null) return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                {
+                    var historialProyecto = new HistorialProyecto();
+                    historialProyecto.Empleado = empleado;
+                    historialProyecto.Proyecto = proyecto;
+                    historialProyecto.Activo = true;
+                    proyecto.HistorialProyectos.Add(historialProyecto);
+                    empleado.HistorialProyectos.Add(historialProyecto);
+                    db.HistorialProyectos.Add(historialProyecto);
+                    db.Entry(proyecto).State = EntityState.Modified;
+                    db.Entry(empleado).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
 
+                
             }
             return RedirectToAction("Index");
         }
