@@ -38,6 +38,14 @@ Dentro de esta pagina en el ViewBag recibis
         </dd>
 
     </dl>
+    @foreach (GroupA.Dominio.Empleado a in ViewBag.Empleados)
+    {
+        @a.Apellido;
+        @a.Nombre;
+        @Html.ActionLink("Mas Informacion", "../Empleados/Details", new { id = a.Id });
+
+
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
