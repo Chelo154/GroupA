@@ -117,6 +117,21 @@ namespace GroupA.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        //Get Proyectos/AgregarEmpleados/3
+        public ActionResult AgregarEmpleados(int? idProyecto)
+        {
+            if (idProyecto == null) return HttpNotFound();
+            else
+            {
+                Proyecto proyecto = db.Proyectos.Find(idProyecto);
+                ViewBag.Proyecto = proyecto;
+                var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
+                ViewBag.empleados = db.Empleados.Where(c => c.BorradoLogico == false && c.HistorialProyectos.Where(d => d.Proyecto.Id == proyecto.Id && !d.Activo).ToList() == null);
+            }
+            return View("AgregarEmpleados");
+
+        }
 
         protected override void Dispose(bool disposing)
         {
@@ -127,20 +142,8 @@ namespace GroupA.Web.Controllers
             base.Dispose(disposing);
         }
         // Get : Proyectos/Agregar/1
-        public ActionResult AgregarEmpleados(int? idProyecto)
-        {
-            if (idProyecto == null) return HttpNotFound();
-            else
-            {
-                Proyecto proyecto = db.Proyectos.Find(idProyecto);
-                ViewBag.Proyecto = proyecto;
-                var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
-                ViewBag.empleados = db.Empleados.Where(c => c.BorradoLogico == false && c.HistorialProyectos.Where(d=>d.Proyecto.Id == proyecto.Id && !d.Activo).ToList()== null);
-            }
-            return View();
-               
-        }
-        [HttpPost,ActionName("AgregarEmpleado")]
+       
+        [HttpPost]
         public ActionResult AgregarEmpleado(int? idProyecto, int? dniEmpleado)
         {
             if (idProyecto == null || dniEmpleado == null) return View();
