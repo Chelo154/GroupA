@@ -29,6 +29,8 @@ namespace GroupA.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Proyecto proyecto = db.Proyectos.Find(id);
+            var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
+            ViewBag.Empleados = empleados;
             if (proyecto == null)
             {
                 return HttpNotFound();
@@ -123,6 +125,42 @@ namespace GroupA.Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        // Get : Proyectos/Agregar/1
+        public ActionResult AgregarEmpleados(int? idProyecto)
+        {
+            if (idProyecto == null) return HttpNotFound();
+            else
+            {
+                Proyecto proyecto = db.Proyectos.Find(idProyecto);
+                ViewBag.Proyecto = proyecto;
+                var empleados = proyecto.HistorialProyectos.Where(c => c.Activo == true && c.Proyecto.Id == proyecto.Id).ToList();
+                ViewBag.empleados = db.Empleados.Where(c => c.BorradoLogico == false && c.HistorialProyectos.Where(d=>d.Proyecto.Id == proyecto.Id && !d.Activo).ToList()== null);
+            }
+            return View();
+               
+        }
+        [HttpPost,ActionName("AgregarEmpleado")]
+        public ActionResult AgregarEmpleado(int? idProyecto, int? dniEmpleado)
+        {
+            if (idProyecto == null || dniEmpleado == null) return View();
+            else
+            {
+                Proyecto proyecto = db.Proyectos.Find(idProyecto);
+                Empleado empleado = db.Empleados.Where(c => c.Dni == dniEmpleado).First();
+                var historialProyecto = new HistorialProyecto();
+                historialProyecto.Empleado = empleado;
+                historialProyecto.Proyecto = proyecto;
+                historialProyecto.Activo = true;
+                proyecto.HistorialProyectos.Add(historialProyecto);
+                empleado.HistorialProyectos.Add(historialProyecto);
+                db.HistorialProyectos.Add(historialProyecto);
+                db.Entry(proyecto).State = EntityState.Modified;
+                db.Entry(empleado).State = EntityState.Modified;
+                db.SaveChanges();
+
+            }
+            return RedirectToAction("Index");
         }
     }
 }
