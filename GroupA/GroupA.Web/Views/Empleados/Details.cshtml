@@ -72,3 +72,23 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="letraFormal text-center"> Inasistencias de @Model.Apellido , @Model.Nombre</h4>
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-responsive">
+                <tr class="letraFormal">
+                    <th>Fecha De Inasistencia</th>
+                </tr>
+                @foreach(GroupA.Dominio.Inasistencia inasistencia in Model.Inasistencias)
+                {
+                    <tr>
+                        <td>@inasistencia.Fecha</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -24,3 +24,26 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+<div class=" container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="letraFormal text-center">Empleados dentro del sector </h3>
+        </div>
+        <table class="table table-responsive">
+            <tr>
+                <th>Dni</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+            </tr>
+            <tr>
+                @foreach(GroupA.Dominio.Empleado empleado in Model.Empleados)
+                {
+                    <td>@empleado.Dni; </td>
+                    <td> @empleado.Apellido</td>
+                    <td>@empleado.Nombre</td>                    
+                }
+
+            </tr>
+        </table>
+    </div>
+</div>

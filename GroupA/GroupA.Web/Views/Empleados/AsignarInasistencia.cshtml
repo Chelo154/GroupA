@@ -1,0 +1,37 @@
+﻿@model GroupA.Dominio.Empleado
+@{
+    ViewBag.Title = "AsignarInasistencia";
+}
+
+<h2>AsignarInasistencia</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="letraFormal text-center">¿Confirma la Inasistencia?</h3>
+        </div>
+        <div class="col-sm-12">
+            <dl class="dl-horizontal letraFormal">
+                <!--Dni-->
+                <dt>@Html.DisplayNameFor(c => c.Dni)</dt>
+                <dd>@Html.DisplayFor(c => c.Dni)</dd>
+                <!--Apellido-->
+                <dt>@Html.DisplayNameFor(c => c.Apellido)</dt>
+                <dd>@Html.DisplayFor(c => c.Apellido)</dd>
+                <!--Nombre-->
+                <dt>@Html.DisplayNameFor(c => c.Nombre)</dt>
+                <dd>@Html.DisplayFor(c => c.Nombre)</dd>
+                <dt>Fecha de Inasistencia</dt>
+                <dd>@DateTime.Today</dd>
+            </dl>
+            @using (Html.BeginForm())
+            {
+                <input type="hidden" name="id" value=@Model.Id>
+                <input type="submit" value="Confirmar Inasistencia" class="btn btn-default" />
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<link href="~/Content/FondosParaLetras.css" rel="stylesheet" />
