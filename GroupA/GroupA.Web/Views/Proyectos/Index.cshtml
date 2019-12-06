@@ -45,6 +45,9 @@
                 <buttom class="btn btn-danger active">
                     @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }) <span class="iconify" data-icon="fa:trash-o" data-inline="false"></span>
                 </buttom>
+                <button class="btn btn-success active">
+                    @Html.ActionLink("Agregar Empleado", "AgregarEmpleados", new { id = item.Id})
+                </button>
 </td>
         </tr>
     }
