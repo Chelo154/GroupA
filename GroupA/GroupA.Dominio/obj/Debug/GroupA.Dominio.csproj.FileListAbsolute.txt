@@ -6,7 +6,6 @@ C:\Users\Chelo\Source\Repos\GroupA2\GroupA\GroupA.Dominio\obj\Debug\GroupA.Domin
 C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\bin\Debug\GroupA.Dominio.dll
 C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\bin\Debug\GroupA.Dominio.pdb
 C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\obj\Debug\GroupA.Dominio.csprojAssemblyReference.cache
-C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\obj\Debug\GroupA.Dominio.csproj.CoreCompileInputs.cache
 C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\obj\Debug\GroupA.Dominio.dll
 C:\Users\Tarchi\source\repos\Chelo154\GroupA\GroupA\GroupA.Dominio\obj\Debug\GroupA.Dominio.pdb
 C:\Users\Chelo\Source\Repos\GroupA3\GroupA\GroupA.Dominio\bin\Debug\GroupA.Dominio.dll

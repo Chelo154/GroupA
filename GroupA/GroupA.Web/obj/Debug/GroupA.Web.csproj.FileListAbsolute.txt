@@ -188,7 +188,6 @@ C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\bin\es\Microsoft.
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\bin\es\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\bin\es\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csprojAssemblyReference.cache
-C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.CoreCompileInputs.cache
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.csproj.CopyComplete
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.dll
 C:\Users\Tarchi\Source\Repos\Chelo154\GroupA\GroupA\GroupA.Web\obj\Debug\GroupA.Web.pdb
